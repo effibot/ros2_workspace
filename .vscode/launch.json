@@ -1,18 +1,13 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    // Example launch of a python file
     {
       "name": "Python: Current File",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "program": "${file}",
-      "console": "integratedTerminal",
+      "console": "integratedTerminal"
     },
-    // Example gdb launch of a ros executable
     {
       "name": "(gdb) Launch (merge-install)",
       "type": "cppdbg",
@@ -51,21 +46,39 @@
         }
       ]
     },
-    //Example of a ROS Launch file
     {
       "name": "ROS: Launch File (merge-install)",
       "type": "ros",
       "request": "launch",
       "preLaunchTask": "build",
-      "target": "${workspaceFolder}/install/share/${input:package}/launch/${input:ros_launch}",
+      "target": "${workspaceFolder}/install/share/${input:package}/launch/${input:ros_launch}"
     },
     {
       "name": "ROS: Launch File (isolated-install)",
       "type": "ros",
       "request": "launch",
       "preLaunchTask": "build",
-      "target": "${workspaceFolder}/install/${input:package}/share/${input:package}/launch/${input:ros_launch}",
+      "target": "${workspaceFolder}/install/${input:package}/share/${input:package}/launch/${input:ros_launch}"
     },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/workspaces/ros2_workspace/src",
+      "program": "/workspaces/ros2_workspace/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
   ],
   "inputs": [
     {
